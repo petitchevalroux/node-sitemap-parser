@@ -1,20 +1,20 @@
 {
-  "name": "node-project",
-  "version": "1.0.0",
-  "description": "Empty node project",
+  "name": "sitemap-parser",
+  "version": "0.0.1",
+  "description": "",
   "scripts": {
     "test": "make tests"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/petitchevalroux/node-project.git"
+    "url": "git+ssh://github.com/petitchevalroux/node-sitemap-parser.git"
   },
   "author": "Patrick Poulain",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/petitchevalroux/node-project/issues"
+    "url": "https://github.com/petitchevalroux/node-sitemap-parser/issues"
   },
-  "homepage": "https://github.com/petitchevalroux/node-project#readme",
+  "homepage": "https://github.com/petitchevalroux/node-sitemap-parser#readme",
   "devDependencies": {
     "eslint": "^3.3.1",
     "eslint-plugin-promise": "^2.0.1",
@@ -22,5 +22,10 @@
     "js-beautify": "^1.6.3",
     "mocha": "^3.0.2",
     "sinon": "^1.17.5"
+  },
+  "dependencies": {
+    "@petitchevalroux/error": "^1.0.1",
+    "bluebird": "^3.4.7",
+    "sitemapper": "^2.1.7"
   }
 }
