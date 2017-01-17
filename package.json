@@ -1,7 +1,8 @@
 {
   "name": "sitemap-parser",
   "version": "0.0.1",
-  "description": "",
+  "main": "src/stream.js",
+  "description": "NodeJS sitemap parser using a duplex stream.",
   "scripts": {
     "test": "make tests"
   },

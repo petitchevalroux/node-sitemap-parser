@@ -1,5 +1,5 @@
 # node-sitemap-parser
-NodeJS sitemap parser using stream as input and output.
+NodeJS sitemap parser using a duplex stream.
 
 ## Install
 ```
@@ -11,19 +11,17 @@ npm install --save "@petitchevalroux/sitemap-parser"
 var stream = require("stream");
 var process = require("process");
 var inputStream = new stream.Readable();
-var SitemapParser = require("@petitchevalroux/sitemap-parser");
-var parser = new SitemapParser({
-    "inStream": inputStream,
-    "outStream": process.stdout
-});
+var SitemapStream = require("@petitchevalroux/sitemap-parser");
+var sitemapStream = new SitemapStream();
 // error event is emitted if an error occured on parsing
-parser.on("error", function (err) {
+sitemapStream.on("error", function (err) {
     console.log(err);
 });
-// end event is emitted when every sitemap are parsed
-parser.on("end", function () {
+// end event is emitted when all sitemaps are parsed
+sitemapStream.on("end", function () {
     console.log("end");
 });
+inputStream.pipe(sitemapStream).pipe(process.stdout);
 inputStream.push('https://www.google.com/work/sitemap.xml');
 inputStream.push('https://www.sitemaps.org/sitemap.xml');
 // emit input end

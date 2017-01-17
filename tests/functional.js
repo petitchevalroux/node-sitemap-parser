@@ -10,13 +10,12 @@ describe("Functional tests", function() {
         output.push(chunk.toString());
         done();
     };
-    var SitemapParser = require(path.join("..", "src", "parser"));
-    var parser = new SitemapParser({
-        "inStream": inputStream,
-        "outStream": outStream
-    });
+    var SitemapStream = require(path.join("..", "src", "stream"));
+    var sitemapStream = new SitemapStream();
+    inputStream.pipe(sitemapStream)
+        .pipe(outStream);
     it("Return at least one url", function(done) {
-        parser.on("end", function() {
+        sitemapStream.on("end", function() {
             assert(output.length > 0);
             assert.equal(output[0].substring(0, 4),
                 "http");
